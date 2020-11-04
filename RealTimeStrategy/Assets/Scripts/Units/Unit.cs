@@ -6,8 +6,14 @@ using UnityEngine.Events;
 
 public class Unit : NetworkBehaviour
 {
+    [SerializeField] private UnitMovement unitMovement = null;
     [SerializeField] private UnityEvent onSelected = null;
     [SerializeField] private UnityEvent onDeselected = null;
+
+    public UnitMovement GetUnitMovement()
+    {
+        return unitMovement;
+    }
 
     #region Client
 
@@ -23,7 +29,7 @@ public class Unit : NetworkBehaviour
     public void Deselect()
     {
         if (!hasAuthority) { return; }
-        
+
         onDeselected?.Invoke();
     }
 
