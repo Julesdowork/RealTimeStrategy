@@ -16,7 +16,7 @@ public class UnitMovement : NetworkBehaviour
     [Command]
 	private void CmdMove(Vector3 pos)
 	{
-		if (!NavMesh.SamplePosition(pos, out NavMeshHit hit, 1f, NavMesh.AllAreas)) return;
+		if (!NavMesh.SamplePosition(pos, out NavMeshHit hit, 1f, NavMesh.AllAreas)) { return; }
 
 		agent.SetDestination(hit.position);
 	}
@@ -33,13 +33,13 @@ public class UnitMovement : NetworkBehaviour
 	[ClientCallback]
 	private void Update()
 	{
-		if (!hasAuthority) return;
+		if (!hasAuthority) { return; }
 
-		if (!Mouse.current.rightButton.wasPressedThisFrame) return;
+		if (!Mouse.current.rightButton.wasPressedThisFrame) { return; }
 
 		Ray ray = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-		if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
+		if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) { return; }
 
 		CmdMove(hit.point);
 	}
