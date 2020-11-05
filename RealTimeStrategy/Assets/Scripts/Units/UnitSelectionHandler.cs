@@ -29,7 +29,7 @@ public class UnitSelectionHandler : MonoBehaviour
         {
             player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
         }
-        
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             StartSelectionArea();
@@ -46,13 +46,16 @@ public class UnitSelectionHandler : MonoBehaviour
 
     private void StartSelectionArea()
     {
-        foreach (Unit selectedUnit in SelectedUnits)
+        if (!Keyboard.current.leftShiftKey.isPressed)
         {
-            selectedUnit.Deselect();
+            foreach (Unit selectedUnit in SelectedUnits)
+            {
+                selectedUnit.Deselect();
+            }
+
+            SelectedUnits.Clear();
         }
-
-        SelectedUnits.Clear();
-
+        
         unitSelectionBox.gameObject.SetActive(true);
 
         startPos = Mouse.current.position.ReadValue();
@@ -100,6 +103,8 @@ public class UnitSelectionHandler : MonoBehaviour
 
         foreach (Unit unit in player.GetMyUnits())
         {
+            if (SelectedUnits.Contains(unit)) { continue; }
+            
             Vector3 screenPos = mainCam.WorldToScreenPoint(unit.transform.position);
 
             if (screenPos.x > min.x && screenPos.x < max.x &&
