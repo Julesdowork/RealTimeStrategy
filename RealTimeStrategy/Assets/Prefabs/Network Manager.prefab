@@ -66,6 +66,7 @@ MonoBehaviour:
   - {fileID: 8745021091805211986, guid: bc428351b7189d245a2080871ad4943f, type: 3}
   - {fileID: 5067185620813255571, guid: 9825252b3407908408a92dfdcee98e97, type: 3}
   unitSpawnerPf: {fileID: 8745021091805211986, guid: bc428351b7189d245a2080871ad4943f, type: 3}
+  gameOverHandlerPf: {fileID: 8357906643405260754, guid: 64cf084c74c39d34584ee85cba034710, type: 3}
 --- !u!114 &7465981092551119898
 MonoBehaviour:
   m_ObjectHideFlags: 0
