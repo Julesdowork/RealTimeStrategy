@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit Spawner Preview
       objectReference: {fileID: 0}
+    - target: {fileID: 3077886440317702790, guid: 596d2a7d95f22364ba9baa0e9638d5b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6534755649067126342, guid: 596d2a7d95f22364ba9baa0e9638d5b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
