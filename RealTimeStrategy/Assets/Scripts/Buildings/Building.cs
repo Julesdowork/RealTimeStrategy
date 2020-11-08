@@ -27,7 +27,7 @@ public class Building : NetworkBehaviour
         return icon;
     }
 
-    public int GetID()
+    public int GetId()
     {
         return id;
     }
