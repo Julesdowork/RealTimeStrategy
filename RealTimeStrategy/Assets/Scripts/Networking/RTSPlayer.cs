@@ -9,6 +9,7 @@ public class RTSPlayer : NetworkBehaviour
     [SerializeField] private Building[] buildings = new Building[0];
     [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
     [SerializeField] private float buildingRangeLimit = 5f;
+    [SerializeField] private Transform cameraTf;
 
     [SyncVar(hook = nameof(ClientHandleResourcesUpdated))]
     private int resources = 500;
@@ -37,6 +38,11 @@ public class RTSPlayer : NetworkBehaviour
     public List<Building> GetMyBuildings()
     {
         return myBuildings;
+    }
+
+    public Transform GetCameraTransform()
+    {
+        return cameraTf;
     }
 
     public bool CanPlaceBuilding(BoxCollider buildingCollider, Vector3 point)
